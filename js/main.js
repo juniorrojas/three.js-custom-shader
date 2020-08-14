@@ -1,3 +1,19 @@
+const vertexShaderSource = " \
+  varying vec3 vNormal; \
+  void main() { \
+    vNormal = normal; \
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); \
+  }";
+
+const fragmentShaderSource = " \
+  varying vec3 vNormal; \
+  void main() { \
+    vec3 light = vec3(3.0, 3.2, 5.0); \
+    light = normalize(light); \
+    float intensity = max(0.0, dot(vNormal, light)); \
+    gl_FragColor = vec4(intensity, intensity, intensity, 1.0); \
+  }";
+
 const width = 400;
 const height = 300;
 
@@ -13,8 +29,8 @@ canvas.style.border = "1px solid black";
 document.body.appendChild(canvas);
 
 const material = new THREE.ShaderMaterial({
-  vertexShader: document.getElementById("vertex-shader").text,
-  fragmentShader: document.getElementById("fragment-shader").text
+  vertexShader: vertexShaderSource,
+  fragmentShader: fragmentShaderSource
 });
 
 const radius = 50;
