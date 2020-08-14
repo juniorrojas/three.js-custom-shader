@@ -13,8 +13,8 @@ canvas.style.border = "1px solid black";
 document.body.appendChild(canvas);
 
 const material = new THREE.ShaderMaterial({
-  vertexShader: document.getElementById("vertexshader").text,
-  fragmentShader: document.getElementById("fragmentshader").text
+  vertexShader: document.getElementById("vertex-shader").text,
+  fragmentShader: document.getElementById("fragment-shader").text
 });
 
 const radius = 50;
