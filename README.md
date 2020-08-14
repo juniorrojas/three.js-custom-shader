@@ -2,7 +2,7 @@
 
 Basic setup for three.js custom shaders.
 
-Open [`js/main.js`](js/main.js).
+Open [`index.html`](index.html).
 
 ![](media/screenshot.png)
 
